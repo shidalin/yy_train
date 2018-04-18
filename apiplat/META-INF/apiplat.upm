@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<module name="uapeai">
+	<public>
+		<component remote="true" singleton="true" tx="CMT">
+			<interface>nc.util.apiplat.itf.IExchange</interface>
+			<implementation>nc.util.apiplat.impl.IExchangeImpl</implementation>
+		</component>
+	</public>
+</module>

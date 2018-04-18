@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="gbk"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="general" class="nc.pubapp.pade.code.funnode.FunNodePara">
+        <property name="moduleName" value="train" />
+	    <property name="bpfPath" value="test.bpf" />
+	    <property name="funcode" value="TR010301"/>
+	    <property name="funNodeName" value="orders"/>
+	    <property name="clientPackName" value="nc.ui.train.orders"/>
+			  		<property name="dbilldDate" value="Dbilldate" />
+			    <property name="metaData" value="manage\METADATA\tr_bill_order.bmf" />
+	    <property name="xmlPath" value="manage\src\client\nc\ui\train\orders\ace\view\Orders_config.xml" />
+	    <property name="metaDataType" value="multiType" />
+	    <property name="funcregispath" value="manage/designmodel/funcmodel/orders/funcregis/TR010301.func" />
+	    <property name="quetempath" value="manage/designmodel/templet/orders/querytemplet/TR010301.qtf" />
+	    <property name="printtempath" value="manage/designmodel/templet/orders/outtemplet/TR010301.otf" />
+	    <property name="systembasepath" value="manage/designmodel/systemplatebase/orders/TR010301/TR010301.stb" />
+	    <property name="extendSuffix" value=""/>
+	    <property name="uif2ModelFilePath" value="manage\designmodel\ace\uif2model\TR010301.umf"/>
+	    <property name="busiCompName" value="manage"/>
+	    <property name="metaDataId" value="f6264c5a-fe4a-4b90-bce0-d8d7bbb41e86"/>
+	</bean>
+	
+	<bean id="templet" class="nc.pubapp.pade.code.funnode.Templet">
+	    <property name="tempStyle" value="2" />
+	    <property name="nodeKey" value="" />
+		<property name="templetPath" value="manage/designmodel/templet/orders/billtemplet/TR010301.btf" />
+	</bean>
+
+	<bean id="BAEHpara" class="nc.pubapp.pade.code.funnode.BodyAfterEditHandlerPara">
+		<property name="itemList">
+			<list>
+							</list>
+		</property>
+	</bean>
+
+	<bean id="BBEHpara" class="nc.pubapp.pade.code.funnode.BodyBeforeEditHandlerPara">
+		<property name="itemList">
+			<list>
+							</list>
+		</property>
+	</bean>
+	
+	<bean id="HTBEHpara" class="nc.pubapp.pade.code.funnode.HeadTailBeforeEditHandlerPara">
+	</bean>
+	
+	<bean id="HTAEHpara" class="nc.pubapp.pade.code.funnode.HeadTailAfterEditHandlerPara">
+	</bean>
+	
+	<bean id="SerPropara" class="nc.pubapp.pade.code.funnode.ServiceProxyPara">
+						<property name="queryAllPk">
+			<bean class="nc.pubapp.pade.code.funnode.ServiceProxyItemPara">
+				<property name="fullClassName" value="nc.itf.train.IOrdersMaintain" />
+				<property name="itmClassName" value=".IOrdersMaintain" />
+				<property name="methodName" value="queryPKs" />
+			</bean>
+		</property>
+				<property name="queryBillByPk">
+			<bean class="nc.pubapp.pade.code.funnode.ServiceProxyItemPara">
+				<property name="fullClassName" value="nc.itf.train.IOrdersMaintain" />
+				<property name="itmClassName" value=".IOrdersMaintain" />
+				<property name="methodName" value="queryBillByPK" />
+			</bean>
+		</property>
+		</bean>
+	
+	<bean id="FilePackNameBean" class="nc.pubapp.pade.code.engine.FilePackNamePara">
+    	<property name="filePackNameList">
+	    	<list>
+				     						       <value>nc.ui.train.orders.handler.OrgChangedHandler.java</value>
+			       <value>nc.ui.train.orders.ace.handler.AceAddHandler.java</value>
+			       <value>nc.ui.train.orders.ace.handler.AceBodyAfterEditHandler.java</value>
+			       <value>nc.ui.train.orders.ace.handler.AceBodyBeforeEditHandler.java</value>
+			       <value>nc.ui.train.orders.ace.handler.AceHeadTailAfterEditHandler.java</value>
+			       <value>nc.ui.train.orders.ace.handler.AceHeadTailBeforeEditHandler.java</value>
+			       <value>nc.ui.train.orders.ace.handler.AceOrgChangedHandler.java</value>
+			       <value>nc.ui.train.orders.ace.serviceproxy.AceOrdersMaintainProxy.java</value>
+			       <value>nc.ui.train.orders.action.OrdersAddAction.java</value>
+			       <value>nc.ui.train.orders.action.OrdersDeleteAction.java</value>
+			       <value>nc.ui.train.orders.action.OrdersEditAction.java</value>
+			       <value>nc.ui.train.orders.action.CopyActionProcessor.java</value>
+			     			       <value>nc.ui.train.orders.query.OrdersQueryConditionInitializer.java</value>
+		     </list>
+	   </property>
+	</bean>
+
+</beans>

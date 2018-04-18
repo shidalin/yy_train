@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- 转单参照单据信息 -->
+	<bean id="refInfo" class="nc.ui.pubapp.billref.src.RefInfo">
+		<property name="headVO">
+			<!-- 上游单据主表VO -->
+			<bean class="nc.vo.train.OrderVO">
+			</bean>
+		</property>
+		<!-- 上游单据子表VO -->
+		<property name="bodyVO">
+			<bean class="nc.vo.train.OrderBVO">
+			</bean>
+		</property>
+		<!-- 上游单据AGGVO -->
+		<property name="billVO">
+			<bean class="nc.vo.train.AggOrderVO">
+			</bean>
+		</property>
+		<!-- 上游单据视图VO -->
+		<property name="viewVO">
+			<bean class="nc.vo.train.OrderViewVO">
+			</bean>
+		</property>
+		<!-- 主子模板 模板标志 -->
+		<property name="billNodeKey" value="TR05REFTR04" />
+		<!-- 视图模板 模板标志 -->
+		<property name="billViewNodeKey" value="TR05REFTR04V" />
+		<!-- 来源单据主键编码 -->
+		<property name="sourcevoPkName" value="pk_order"></property>
+		<!-- 来源单据单据号编码 -->
+		<property name="sourcevoBillNOName" value="vbillno"></property>
+		<!-- 上游单据查询服务 -->
+		<property name="queryService">
+			<bean class="nc.ui.train.arriveorder.ref.TR05RefTR04ReferQueryService">
+			</bean>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 替换按钮 -->
+	<bean class="nc.ui.pubapp.plugin.action.ReplaceActionInfo">
+		<!-- 按钮容器 -->
+		<property name="actionContainer" ref="actionsOfList"></property>
+		<!-- 按钮类型，非编辑态按钮 -->
+		<property name="actionType" value="notedit"></property>
+		<!-- 目标按钮 -->
+		<property name="target" ref="copyAction"></property>
+		<!-- 实际执行按钮 -->
+		<property name="action" ref="testAction2"></property>
+	</bean>
+	<bean id="testAction2" class="nc.ui.train.orders.action.TestAction2">
+		<property name="model">
+			<ref bean="bmModel" />
+		</property>
+	</bean>
+	<bean id="testAction3" class="nc.ui.train.orders.action.TestAction3">
+		<property name="model">
+			<ref bean="bmModel" />
+		</property>
+	</bean>
+	<!-- 新增按钮 -->
+	<bean class="nc.ui.pubapp.plugin.action.InsertActionInfo">
+		<!-- 按钮容器 -->
+		<property name="actionContainer" ref="actionsOfCard"></property>
+		<!-- 注意按钮类型取值 notedit/edit -->
+		<property name="actionType" value="notedit"></property>
+		<!-- 目标按钮 -->
+		<property name="target" ref="addAction"></property>
+		<!-- 新增按钮位置,相对于目标按钮 -->
+		<property name="pos" value="after"></property>
+		<!-- 实际新增按钮 -->
+		<property name="action" ref="testAction3"></property>
+	</bean>
+	<!-- 拦截按钮 -->
+	<bean class="nc.ui.pubapp.plugin.action.ActionInterceptorInfo">
+		<!-- 拦截目标 -->
+		<property name="target" ref="deleteScriptAction"></property>
+		<!-- 拦截器实现 -->
+		<property name="interceptor" ref="interceptorFordeleteAction"></property>
+	</bean>
+	<!-- 拦截器实现 -->
+	<bean id="interceptorFordeleteAction"
+		class="nc.ui.train.orders.action.interceptor.InterceptorFordeleteAction">
+		<property name="model">
+			<ref bean="bmModel" />
+		</property>
+	</bean>
+
+	<!-- 事件监听 -->
+	<bean id="ExEventHandlerMediator" class="nc.ui.pubapp.uif2app.model.AppEventHandlerMediator">
+		<property name="model" ref="bmModel" />
+		<property name="handlerGroup">
+			<list>
+				<!-- 表头事件监听 -->
+				<bean class="nc.ui.pubapp.uif2app.event.EventHandlerGroup">
+					<property name="event"
+						value="nc.ui.pubapp.uif2app.event.card.CardHeadTailAfterEditEvent" />
+					<property name="handler">
+						<bean class="nc.ui.train.orders.ace.handler.AceHeadTailAfterEditHandler" />
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+</beans>

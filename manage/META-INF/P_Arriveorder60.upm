@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding='gb2312'?>
+<module name="train">
+	<public>
+		<component remote="true" singleton="true" tx="CMT">
+			<interface>nc.itf.train.IArriveorderMaintain</interface>
+			<implementation>nc.impl.train.ArriveorderMaintainImpl</implementation>
+		</component>
+	</public>
+	<public>
+		<component remote="true" singleton="true" tx="CMT">
+			<interface>nc.itf.train.IArraiveOrderReportQuery</interface>
+			<implementation>nc.impl.train.ArraiveOrderReportQueryImpl</implementation>
+		</component>
+	</public>
+</module> 

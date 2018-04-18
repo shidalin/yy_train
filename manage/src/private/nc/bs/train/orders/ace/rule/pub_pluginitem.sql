@@ -1,0 +1,32 @@
+insert into pub_pluginitem
+  (dr,
+   industrytype,--所属NC行业
+   iorder,--执行顺序
+   localtype,--执行顺序
+   pk_pluginitem,--扩展条目主键
+   ts,
+   vcomponentname,--业务组建名
+   vdescription,--描述
+   veventtype,--扩展事件类型，before=前规则,after=后规则，nc.impl.pubapp.pattern.rule.plugin.EventType
+   vextendmodule,--扩展点模块
+   vextendpointname,--扩展点名称
+   vextendtype,--扩展类型，addBefore=扩展规则前,addAfter=扩展规则后,replace=替换规则，nc.impl.pubapp.pattern.rule.plugin.define.ExtendType
+   vmodulename,--模块命
+   vruleclass,--扩展规则类
+   vtargetclass)--扩展目标类
+values
+  (0,
+   '0',
+   1,
+   '',
+   'tr_order_insert_bre',
+   '2017-11-11 12:17:28',
+   'manage',
+   '',
+   'before',
+   '',
+   'nc.bs.train.orders.plugin.bpplugin.OrdersPluginPoint.INSERT',
+   'addBefore',
+   'train',
+   'nc.bs.train.orders.ace.rule.SaveBaseBeforeRule',
+   '');

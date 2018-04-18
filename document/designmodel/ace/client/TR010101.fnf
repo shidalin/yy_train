@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="gbk"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="general" class="nc.pubapp.pade.code.funnode.FunNodePara">
+        <property name="moduleName" value="train" />
+	    <property name="bpfPath" value="test.bpf"/>
+	    <property name="funcode" value="TR010101"/>
+	    <property name="clientPackName" value="nc.ui.train.chatype"/>
+			    <property name="metaData" value="document\METADATA\tr_bd_chatype.bmf"/>
+	    <property name="xmlPath" value="document\src\client\nc\ui\train\chatype\ace\view\Chatype_config.xml"/>
+	    <property name="metaDataType" value="singleType" />
+		<property name="funcregispath" value="document/designmodel/funcmodel/chatype/funcregis/TR010101.func" />
+		<property name="quetempath" value="${quetempath}" />
+		<property name="printtempath" value="${printtempath}" />
+		<property name="systembasepath" value="document/designmodel/systemplatebase/chatype/TR010101/TR010101.stb" />
+		<property name="extendSuffix" value=""/>
+		<property name="uif2ModelFilePath" value="document\designmodel\ace\uif2model\TR010101.umf"/>
+		<property name="busiCompName" value="document"/>
+		<property name="metaDataId" value="cd483723-68a6-420d-9315-8d63b0e30ad9"/>
+	</bean>
+
+	<bean id="templet" class="nc.pubapp.pade.code.funnode.Templet">
+		<property name="tempStyle" value="1" />
+		<property name="nodeKey" value="" />
+		<property name="templetPath" value="document/designmodel/templet/chatype/billtemplet/TR010101.btf" />
+	</bean>
+	
+	<bean id="FilePackNameBean" class="nc.pubapp.pade.code.engine.FilePackNamePara">
+		<property name="filePackNameList">
+			 <list>
+				  <value>nc.ui.train.chatype.action.ChatypeAddLineAction.java</value>
+				  <value>nc.ui.train.chatype.handler.BodyAfterEditHandler.java</value>
+				  <value>nc.ui.train.chatype.handler.BodyBeforeEditHandler.java</value>
+			 </list>
+		</property>
+	</bean>
+
+</beans>
